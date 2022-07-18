@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+<form action="/predict" method="POST">
+ <textarea name="review_text" placeholder="Enter your text here to get a prediction..." rows="10" cols="15"></textarea>
+    <input type="submit" value="Get prediction ...">
+</form>
+
+
+<br></br>
+{% for dict_item in prediction %}
+   {% for key, value in dict_item.items() %}
+      <ul>{{key}}: {{value}}</ul>
+   {% endfor %}
+{% endfor %}
+
+ </div>
+<style>
+ul {
+    align:center;
+    text-align:center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #2c3e50;
+}
+</style>
+{% endblock content %}
